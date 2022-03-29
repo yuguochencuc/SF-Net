@@ -15,7 +15,10 @@ Abstract：Due to the high computational complexity to model more frequency band
 ![lQLPDhtH6ITooSDNAz7NA7GwySl8YbYqe-8CRnzbbEA6AA_945_830](https://user-images.githubusercontent.com/51236251/160519878-e0aa93ea-9573-40f9-9665-2d8de9d90efe.png)
 
 ## Visualization of spectrograms
+## VB dataset
 ![lQLPDhtH6NmMG6rNAwTNA6uw8qUBkZFtUxgCRn1lwQBsAA_939_772](https://user-images.githubusercontent.com/51236251/160520076-b580c1bb-253c-44ee-a781-1243caa7924d.png)
+## DNS blind set
+![lQLPDhtH8iT2-N_NAubNA42wBREh0WKHv5wCRoygD0BOAA_909_742](https://user-images.githubusercontent.com/51236251/160527589-97dff384-cb72-4354-8ab0-1f953ab5564c.png)
 
 
 
