@@ -6,7 +6,7 @@ from ptflops import get_model_complexity_info
 import torch.nn.functional as F
 from Backup import numParams
 from torch.nn.parameter import Parameter
-from  denoisenet_low import DB_denoise_net_tcm1
+from denoisenet_low import DB_denoise_net_tcm1
 from utils import NormSwitch
 
 # class complex_denoise_net(nn.Module):
@@ -77,7 +77,7 @@ class denoise_sub_net_mf(nn.Module):
 
     def forward(self, input1, input2):
         #input = input.unsqueeze(dim=1)
-        x_lf, x_lf_list  = self.en_mf(input1)
+        x_lf, x_lf_list  = self.en_lf(input1)
         x, x_list = self.en_mf(input2)
         x = self.inter_lf_mf(x, x_lf)
         batch_num, _, seq_len, _ = x.shape
