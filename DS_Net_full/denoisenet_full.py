@@ -489,10 +489,8 @@ class AHAM(nn.Module):  # aham merge
         y_list = []
         for i in range(len(input_list)):
             #batch_num, channel, seq_len, frequency = input_list[i].shape
-            input_list[i]= input_list[i].view(batch, frames, -1)
+            input_list[i] = input_list[i].permute(0, 2, 1).contiguous()
             input = self.avg_pool(input_list[i])
-            #print(str(input.shape))
-            #y = self.conv1(input)
             y = input
             x = input_list[i].unsqueeze(-1)
             y= y.unsqueeze(-2)
@@ -505,7 +503,7 @@ class AHAM(nn.Module):  # aham merge
         y_softmax = self.softmax(y_merge)
         aham= torch.matmul(x_merge, y_softmax)
         aham= aham.view(batch, channel_frequency, frames)
-        input_list[-1] = input_list[-1].view(batch, channel_frequency, frames)
+        input_list[-1] = input_list[-1].permute(0, 2, 1).contiguous()
         aham_output = input_list[-1] + aham
         return aham_output
 
