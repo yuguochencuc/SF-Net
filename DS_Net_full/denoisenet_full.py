@@ -113,8 +113,8 @@ class DB_denoise_net(nn.Module):
         x_mag_en_acc = Variable(torch.zeros(x_mag_en.size()), requires_grad=True).to(x_mag_en.device)
         mag_tcm_output= []
         for i in range(len(self.tcm_list_mag)):
-            x_mag_tcm= self.tcm_list_mag[i](x_mag_en)
-            x_mag_en_acc = x_mag_en_acc + x_mag_tcm
+            x_mag_en= self.tcm_list_mag[i](x_mag_en)
+            x_mag_en_acc = x_mag_en_acc + x_mag_en
             mag_tcm_output.append(x_mag_en_acc)
         x_mag_tcm = x_mag_en_acc
         del x_mag_en_acc
@@ -131,8 +131,8 @@ class DB_denoise_net(nn.Module):
         x_ri_tcm_acc = Variable(torch.zeros(x_ri_en.size()), requires_grad=True).to(x_ri_en.device)
         ri_tcm_output= []
         for i in range(len(self.tcm_list_ri)):
-            x_ri_tcm = self.tcm_list_ri[i](x_ri_en)
-            x_ri_tcm_acc = x_ri_tcm_acc + x_ri_tcm
+            x_ri_en = self.tcm_list_ri[i](x_ri_en)
+            x_ri_tcm_acc = x_ri_tcm_acc + x_ri_en
             ri_tcm_output.append(x_ri_tcm_acc)
         x_ri_tcm = x_ri_tcm_acc
         del x_ri_tcm_acc
@@ -178,8 +178,8 @@ class CP_denoise_net_tcm1(nn.Module):
         x_ri_tcm_acc = Variable(torch.zeros(x_ri_en.size()), requires_grad=True).to(x_ri_en.device)
         ri_tcm_output= []
         for i in range(len(self.tcm_list)):
-            x_ri_tcm = self.tcm_list[i](x_ri_en)
-            x_ri_tcm_acc = x_ri_tcm_acc + x_ri_tcm
+            x_ri_en = self.tcm_list[i](x_ri_en)
+            x_ri_tcm_acc = x_ri_tcm_acc + x_ri_en
             ri_tcm_output.append(x_ri_tcm_acc)
         x_ri_tcm = x_ri_tcm_acc
         del x_ri_tcm_acc
@@ -221,8 +221,8 @@ class ME_denoise_net_tcm1(nn.Module):
         x_mag_en_acc = Variable(torch.zeros(x_mag_en.size()), requires_grad=True).to(x_mag_en.device)
         mag_tcm_output = []
         for i in range(len(self.tcm_list)):
-            x_mag_tcm = self.tcm_list[i](x_mag_en)
-            x_mag_en_acc = x_mag_en_acc + x_mag_tcm
+            x_mag_en = self.tcm_list[i](x_mag_en)
+            x_mag_en_acc = x_mag_en_acc + x_mag_en
             mag_tcm_output.append(x_mag_en_acc)
         x_mag_tcm = x_mag_en_acc
         del x_mag_en_acc
